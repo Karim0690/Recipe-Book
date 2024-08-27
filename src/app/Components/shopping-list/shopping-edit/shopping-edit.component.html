@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="ingredientForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            formControlName="name"
+            [ngClass]="{
+              'is-invalid': name?.touched && name?.invalid,
+              'is-valid': name?.valid
+            }"
+          />
+          <div class="invalid-feedback">
+            <span> @if(name?.errors?.['required']){ Name is required } </span>
+            <span
+              >@if(name?.errors?.['minlength']){ Name must be at least 3
+              characters long}</span
+            >
+          </div>
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            name="amount"
+            id="amount"
+            class="form-control"
+            formControlName="amount"
+            [ngClass]="{
+              'is-invalid': amount?.touched && amount?.invalid,
+              'is-valid': amount?.valid
+            }"
+          />
+          <div class="invalid-feedback">
+            <span>
+              @if(amount?.errors?.['required']){ Amount is required }
+            </span>
+            <span
+              >@if(amount?.errors?.['pattern']){ Amount must be positive number
+              }</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 my-4">
+          <button
+            class="btn btn-success"
+            type="submit"
+            (click)="addIngredient()"
+          >
+            Add
+          </button>
+          <button class="btn btn-danger mx-2" type="button">Delete</button>
+          <button class="btn btn-primary" type="button">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
