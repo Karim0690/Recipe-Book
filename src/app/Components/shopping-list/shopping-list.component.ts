@@ -13,6 +13,8 @@ export class ShoppingListComponent {
   ingredents: Ingredents[] = [
     new Ingredents('Apples', 5),
     new Ingredents('Tomateos', 10),
+    new Ingredents('Potatto', 13),
+    new Ingredents('Eggs', 15),
   ];
 
   onIngredientAdded(ingredent: Ingredents) {
